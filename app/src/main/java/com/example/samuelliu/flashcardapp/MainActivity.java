@@ -41,5 +41,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.closed_eye).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.sf).setVisibility(View.INVISIBLE);
+                findViewById(R.id.kc).setVisibility(View.INVISIBLE);
+                findViewById(R.id.ps).setVisibility(View.INVISIBLE);
+                findViewById(R.id.closed_eye).setVisibility(View.INVISIBLE);
+                findViewById(R.id.open_eye).setVisibility(View.VISIBLE);
+                findViewById(R.id.sf).setBackgroundColor(Color.parseColor("#d2cced"));
+                findViewById(R.id.kc).setBackgroundColor(Color.parseColor("#d2cced"));
+                findViewById(R.id.ps).setBackgroundColor(Color.parseColor("#d2cced"));
+            }
+        });
+
+        findViewById(R.id.open_eye).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.sf).setVisibility(View.VISIBLE);
+                findViewById(R.id.kc).setVisibility(View.VISIBLE);
+                findViewById(R.id.ps).setVisibility(View.VISIBLE);
+                findViewById(R.id.closed_eye).setVisibility(View.VISIBLE);
+                findViewById(R.id.open_eye).setVisibility(View.INVISIBLE);
+            }
+        });
+
     }
 }

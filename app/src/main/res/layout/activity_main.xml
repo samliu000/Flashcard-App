@@ -66,15 +66,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="12dp"
+        android:visibility="invisible"
         app:srcCompat="@drawable/ic_iconmonstr_eye_thin" />
 
     <ImageView
         android:id="@+id/closed_eye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/open_eye"
+        android:layout_alignTop="@+id/open_eye"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:srcCompat="@drawable/ic_iconmonstr_eye_off_thin" />
 
 </RelativeLayout>
