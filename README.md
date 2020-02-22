@@ -1,14 +1,12 @@
 ## Flash Card App
 
-📝 `NOTE:` Paste the README templates for each subsequent lab here at the top, (i.e. lab 2, 3, 4). This will show a history of your development process including which users stories you completed and how your app looked and functioned at each step.
-
 ## Lab 1
 
 ### App Description
 This app asks the user a question! There are three choices to select from and only one is correct. The user can choose to make the choices invisible by clicking on the closed eye icon and make them reappear with the open eye icon. 
 
 ### App Walk-though
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src=https://media.giphy.com/media/XFp3b6UYQWYC9hRR6v/giphy.gif width=200><br>
 
 ## Required
 - [x] Create New Project in Android Studio
