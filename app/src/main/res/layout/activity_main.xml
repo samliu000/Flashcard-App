@@ -24,16 +24,57 @@
         app:layout_constraintVertical_bias="0.13" />
 
     <TextView
-        android:id="@+id/Answer"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="89dp"
-        android:background="#ebe534"
+        android:id="@+id/ps"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="199dp"
         android:gravity="center"
-        android:text="The Kansas City Chiefs"
-        android:textSize="40sp"
-        android:visibility="invisible" />
+        android:background="#d2cced"
+        android:text="Pittsburgh Steelers"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/sf"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="123dp"
+        android:gravity="center"
+        android:background="#d2cced"
+        android:text="San Francisco 49ers"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/kc"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp"
+        android:gravity="center"
+        android:background="#d2cced"
+        android:text="Kansas City Chief "
+        android:textSize="23sp" />
+
+    <ImageView
+        android:id="@+id/open_eye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        app:srcCompat="@drawable/ic_iconmonstr_eye_thin" />
+
+    <ImageView
+        android:id="@+id/closed_eye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/open_eye"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_iconmonstr_eye_off_thin" />
 
 </RelativeLayout>
