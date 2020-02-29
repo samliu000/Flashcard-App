@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.sf).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.sf).setBackgroundColor(Color.parseColor("#fc6565"));
+                findViewById(R.id.sf).setBackgroundColor(Color.parseColor("#FC6565"));
                 findViewById(R.id.kc).setBackgroundColor(Color.parseColor("#40d12a"));
                 findViewById(R.id.ps).setBackgroundColor(Color.parseColor("#d2cced"));
             }
@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.open_eye).setVisibility(View.INVISIBLE);
             }
         });
+
+
 
     }
 }
