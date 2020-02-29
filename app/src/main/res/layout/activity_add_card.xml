@@ -17,4 +17,23 @@
         app:srcCompat="@drawable/cancel"
         tools:layout_editor_absoluteX="328dp"
         tools:layout_editor_absoluteY="455dp" />
+
+    <EditText
+        android:id="@+id/AnswerPrompt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:hint="Enter The Answer Here"></EditText>
+
+    <EditText
+        android:id="@+id/QuestionPrompt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:hint="Enter The Question Here"></EditText>
+
 </RelativeLayout>
