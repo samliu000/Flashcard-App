@@ -36,4 +36,13 @@
         android:layout_marginTop="23dp"
         android:hint="Enter The Question Here"></EditText>
 
+    <ImageView
+        android:id="@+id/Save"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/Cancel"
+        android:layout_marginStart="22dp"
+        app:srcCompat="@drawable/save" />
+
 </RelativeLayout>

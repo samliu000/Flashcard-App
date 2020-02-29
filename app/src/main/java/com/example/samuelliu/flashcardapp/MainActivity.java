@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,9 +72,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addCard = new Intent(MainActivity.this, AddCardActivity.class);
-                startActivity(addCard);
+                startActivityForResult(addCard, 100);
             }
         });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+
+            // get new question and answer
+            String question = data.getExtras().getString("question");
+            String answer = data.getExtras().getString("answer");
+
+            // set question and answer views
+            TextView questionView = (TextView) findViewById(R.id.Question);
+            questionView.setText(question);
+
+        }
     }
 }
