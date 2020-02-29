@@ -3,6 +3,7 @@ package com.example.samuelliu.flashcardapp;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addCard = new Intent(MainActivity.this, AddCardActivity.class);
+                addCard.putExtra("RequestCode", "NonExist");
                 startActivityForResult(addCard, 100);
             }
         });
@@ -89,8 +91,9 @@ public class MainActivity extends AppCompatActivity {
                 editTheCard.putExtra("Answer", answerView.getText());
                 editTheCard.putExtra("WrongAnswer1", wrongAnswer1View.getText());
                 editTheCard.putExtra("WrongAnswer2", wrongAnswer2View.getText());
+                editTheCard.putExtra("RequestCode", "Existing");
 
-                startActivityForResult(editTheCard, 100);
+                startActivityForResult(editTheCard, 200);
             }
         });
     }
@@ -118,6 +121,18 @@ public class MainActivity extends AppCompatActivity {
             TextView wrongAnswer2View = (TextView) findViewById(R.id.prompt1);
             wrongAnswer2View.setText(wrongAnswer2);
 
+            Snackbar.make(findViewById(R.id.Question),
+                    "Card created successfully!",
+                    Snackbar.LENGTH_SHORT)
+                    .show();
+
+        }
+
+        if(requestCode == 200) {
+            Snackbar.make(findViewById(R.id.Question),
+                    "Card edited successfully!",
+                    Snackbar.LENGTH_SHORT)
+                    .show();
         }
     }
 }

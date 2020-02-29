@@ -3,9 +3,11 @@ package com.example.samuelliu.flashcardapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddCardActivity extends AppCompatActivity {
 
@@ -15,27 +17,29 @@ public class AddCardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_card);
 
         // update the fields
-        String startingQuestion = getIntent().getStringExtra("Question");
-        String startingAnswer = getIntent().getStringExtra("Answer");
-        String startingWrongAns1 = getIntent().getStringExtra("WrongAnswer1");
-        String startingWrongAns2 = getIntent().getStringExtra("WrongAnswer2");
+        if(getIntent().getStringExtra("RequestCode").equals("Existing")) {
+            String startingQuestion = getIntent().getStringExtra("Question");
+            String startingAnswer = getIntent().getStringExtra("Answer");
+            String startingWrongAns1 = getIntent().getStringExtra("WrongAnswer1");
+            String startingWrongAns2 = getIntent().getStringExtra("WrongAnswer2");
 
-        // set fields
-        TextView questionView = findViewById(R.id.QuestionPrompt);
-        TextView answerView = findViewById(R.id.AnswerPrompt);
-        TextView wrongAnswer1View = findViewById(R.id.WrongPrompt1);
-        TextView wrongAnswer2View = findViewById(R.id.WrongPrompt2);
-        if(!startingQuestion.equals("")) {
-            ((EditText)findViewById(R.id.QuestionPrompt)).setText(startingQuestion);
-        }
-        if(!startingAnswer.equals("")) {
-            ((EditText)findViewById(R.id.AnswerPrompt)).setText(startingAnswer);
-        }
-        if(!startingWrongAns1.equals("")) {
-            ((EditText)findViewById(R.id.WrongPrompt1)).setText(startingWrongAns1);
-        }
-        if(!startingWrongAns2.equals("")) {
-            ((EditText)findViewById(R.id.WrongPrompt2)).setText(startingWrongAns2);
+            // set fields
+            TextView questionView = findViewById(R.id.QuestionPrompt);
+            TextView answerView = findViewById(R.id.AnswerPrompt);
+            TextView wrongAnswer1View = findViewById(R.id.WrongPrompt1);
+            TextView wrongAnswer2View = findViewById(R.id.WrongPrompt2);
+            if (!startingQuestion.equals("")) {
+                ((EditText) findViewById(R.id.QuestionPrompt)).setText(startingQuestion);
+            }
+            if (!startingAnswer.equals("")) {
+                ((EditText) findViewById(R.id.AnswerPrompt)).setText(startingAnswer);
+            }
+            if (!startingWrongAns1.equals("")) {
+                ((EditText) findViewById(R.id.WrongPrompt1)).setText(startingWrongAns1);
+            }
+            if (!startingWrongAns2.equals("")) {
+                ((EditText) findViewById(R.id.WrongPrompt2)).setText(startingWrongAns2);
+            }
         }
 
 
@@ -61,6 +65,17 @@ public class AddCardActivity extends AppCompatActivity {
                         ((EditText) findViewById(R.id.WrongPrompt1)).getText().toString();
                 String wrongAnswer2 =
                         ((EditText) findViewById(R.id.WrongPrompt2)).getText().toString();
+
+                if(question.equals("") || answer.equals("") || wrongAnswer1.equals("") ||
+                        wrongAnswer2.equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Must fill in all fields", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM, 0, 0);
+                    toast.show();
+
+                    // end method
+                    return;
+                }
 
                 // create new intent for data sendback
                 Intent data = new Intent();
