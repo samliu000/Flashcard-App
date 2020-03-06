@@ -6,7 +6,7 @@
 Flashcard app where user has three choices to select from and an question to answer. The user can now create a new flashcard and also can edit the existing flashcard.
 
 ### App Walk-though
-<img src="https://media.giphy.com/media/XFp3b6UYQWYC9hRR6v/giphy.gif" width=200><br>
+<img src="https://github.com/samliu000/FlashcardApp/blob/master/lab2demo.gif" width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
