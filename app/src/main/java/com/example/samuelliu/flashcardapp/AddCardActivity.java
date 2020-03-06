@@ -17,30 +17,20 @@ public class AddCardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_card);
 
         // update the fields
-        if(getIntent().getStringExtra("RequestCode").equals("Existing")) {
             String startingQuestion = getIntent().getStringExtra("Question");
-            String startingAnswer = getIntent().getStringExtra("Answer");
-            String startingWrongAns1 = getIntent().getStringExtra("WrongAnswer1");
-            String startingWrongAns2 = getIntent().getStringExtra("WrongAnswer2");
+        String startingAnswer = getIntent().getStringExtra("Answer");
+        String startingWrongAns1 = getIntent().getStringExtra("WrongAnswer1");
+        String startingWrongAns2 = getIntent().getStringExtra("WrongAnswer2");
 
-            // set fields
-            TextView questionView = findViewById(R.id.QuestionPrompt);
-            TextView answerView = findViewById(R.id.AnswerPrompt);
-            TextView wrongAnswer1View = findViewById(R.id.WrongPrompt1);
-            TextView wrongAnswer2View = findViewById(R.id.WrongPrompt2);
-            if (!startingQuestion.equals("")) {
-                ((EditText) findViewById(R.id.QuestionPrompt)).setText(startingQuestion);
-            }
-            if (!startingAnswer.equals("")) {
-                ((EditText) findViewById(R.id.AnswerPrompt)).setText(startingAnswer);
-            }
-            if (!startingWrongAns1.equals("")) {
-                ((EditText) findViewById(R.id.WrongPrompt1)).setText(startingWrongAns1);
-            }
-            if (!startingWrongAns2.equals("")) {
-                ((EditText) findViewById(R.id.WrongPrompt2)).setText(startingWrongAns2);
-            }
-        }
+        // set fields
+        TextView questionView = findViewById(R.id.QuestionPrompt);
+        TextView answerView = findViewById(R.id.AnswerPrompt);
+        TextView wrongAnswer1View = findViewById(R.id.WrongPrompt1);
+        TextView wrongAnswer2View = findViewById(R.id.WrongPrompt2);
+        ((EditText) findViewById(R.id.QuestionPrompt)).setText(startingQuestion);
+        ((EditText) findViewById(R.id.AnswerPrompt)).setText(startingAnswer);
+        ((EditText) findViewById(R.id.WrongPrompt1)).setText(startingWrongAns1);
+        ((EditText) findViewById(R.id.WrongPrompt2)).setText(startingWrongAns2);
 
 
         findViewById(R.id.Cancel).setOnClickListener(new View.OnClickListener() {

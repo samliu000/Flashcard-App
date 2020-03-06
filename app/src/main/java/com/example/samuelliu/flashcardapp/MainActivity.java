@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addCard = new Intent(MainActivity.this, AddCardActivity.class);
-                addCard.putExtra("RequestCode", "NonExist");
                 startActivityForResult(addCard, 100);
             }
         });
@@ -91,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 editTheCard.putExtra("Answer", answerView.getText());
                 editTheCard.putExtra("WrongAnswer1", wrongAnswer1View.getText());
                 editTheCard.putExtra("WrongAnswer2", wrongAnswer2View.getText());
-                editTheCard.putExtra("RequestCode", "Existing");
 
                 startActivityForResult(editTheCard, 200);
             }
