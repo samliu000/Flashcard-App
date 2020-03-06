@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent editTheCard = new Intent(MainActivity.this, AddCardActivity.class);
-
                 TextView questionView = findViewById(R.id.Question);
                 TextView answerView = findViewById(R.id.prompt3);
                 TextView wrongAnswer1View = findViewById(R.id.prompt1);
