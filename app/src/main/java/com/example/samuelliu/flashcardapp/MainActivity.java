@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 100) {
+        if ((requestCode == 100 || requestCode == 200) && data != null) {
 
             // get new question and answer
             String question = data.getExtras().getString("question");
@@ -121,18 +121,21 @@ public class MainActivity extends AppCompatActivity {
             TextView wrongAnswer2View = (TextView) findViewById(R.id.prompt1);
             wrongAnswer2View.setText(wrongAnswer2);
 
-            Snackbar.make(findViewById(R.id.Question),
-                    "Card created successfully!",
-                    Snackbar.LENGTH_SHORT)
-                    .show();
+            if(requestCode == 100) {
+                Snackbar.make(findViewById(R.id.Question),
+                        "Card created successfully!",
+                        Snackbar.LENGTH_SHORT)
+                        .show();
+            }
+            else if(requestCode == 200) {
+                Snackbar.make(findViewById(R.id.Question),
+                        "Card edited successfully!",
+                        Snackbar.LENGTH_SHORT)
+                        .show();
+            }
 
         }
 
-        if(requestCode == 200) {
-            Snackbar.make(findViewById(R.id.Question),
-                    "Card edited successfully!",
-                    Snackbar.LENGTH_SHORT)
-                    .show();
-        }
+
     }
 }
