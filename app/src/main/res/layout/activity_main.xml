@@ -81,7 +81,7 @@
     <ImageView
         android:id="@+id/addCard"
         android:layout_width="40dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_alignBottom="@+id/open_eye"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="22dp"
@@ -95,6 +95,23 @@
         android:layout_alignTop="@+id/addCard"
         android:layout_marginStart="22dp"
         app:srcCompat="@drawable/edit" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/addCard"
+        android:layout_marginBottom="215dp"
+        app:srcCompat="@drawable/next" />
+
+    <ImageView
+        android:id="@+id/trash"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/editCard"
+        android:layout_alignTop="@+id/next"
+        app:srcCompat="@drawable/trash" />
 
 
 </RelativeLayout>

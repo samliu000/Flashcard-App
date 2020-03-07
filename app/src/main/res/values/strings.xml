@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Flashcard App</string>
+    <string name="no_cards">No Cards Left</string>
+    <string name="create_more">Create a new card</string>
+    <string name="or">Or</string>
+    <string name="edit_card">Edit this card</string>
 </resources>
