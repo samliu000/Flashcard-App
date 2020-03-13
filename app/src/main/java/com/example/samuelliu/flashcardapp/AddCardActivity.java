@@ -17,7 +17,7 @@ public class AddCardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_card);
 
         // update the fields
-            String startingQuestion = getIntent().getStringExtra("Question");
+        String startingQuestion = getIntent().getStringExtra("Question");
         String startingAnswer = getIntent().getStringExtra("Answer");
         String startingWrongAns1 = getIntent().getStringExtra("WrongAnswer1");
         String startingWrongAns2 = getIntent().getStringExtra("WrongAnswer2");
