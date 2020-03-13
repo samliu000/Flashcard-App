@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     // counter for our current card
     int currentCardDisplayedIndex = 0;
 
-    // for edititing card
+    // for editing card
     Flashcard cardToEdit;
 
     // get random number
