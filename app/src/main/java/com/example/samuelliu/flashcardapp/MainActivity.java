@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.List;
@@ -159,36 +161,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // increment current card displayed
-                int localSize = allFlashcards.size() - 1;
-                if(localSize < 0) localSize = 0;
-                currentCardDisplayedIndex = getRandomNumber(0, localSize);
+                // import animation
+                final Animation leftOutAnim = AnimationUtils.loadAnimation(v.getContext(),
+                        R.anim.left_out);
+                final Animation rightInAnim = AnimationUtils.loadAnimation(v.getContext(),
+                        R.anim.right_in);
 
-                // if we reached last card already, reset current card displayed
-                if (currentCardDisplayedIndex > allFlashcards.size() - 1) {
-                    currentCardDisplayedIndex = 0;
-                }
+                // start the left out
+                findViewById(R.id.Question).startAnimation(leftOutAnim);
+                findViewById(R.id.prompt1).startAnimation(leftOutAnim);
+                findViewById(R.id.prompt2).startAnimation(leftOutAnim);
+                findViewById(R.id.prompt3).startAnimation(leftOutAnim);
 
-                // update flashcard
-                if(allFlashcards.size() != 0) {
-                    // set the question and answer TextViews with data from the database
-                    ((TextView) findViewById(R.id.Question)).setText(
-                            allFlashcards.get(currentCardDisplayedIndex).getQuestion());
-                    ((TextView) findViewById(R.id.prompt3)).setText(
-                            allFlashcards.get(currentCardDisplayedIndex).getAnswer());
-                    ((TextView) findViewById(R.id.prompt1)).setText(
-                            allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer1());
-                    ((TextView) findViewById(R.id.prompt2)).setText(
-                            allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer2());
-                }
+                leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
 
-                // reset colors
-                ((TextView) findViewById(R.id.prompt1)).setBackgroundColor(
-                        Color.parseColor("#d2cced"));
-                ((TextView) findViewById(R.id.prompt2)).setBackgroundColor(
-                        Color.parseColor("#d2cced"));
-                ((TextView) findViewById(R.id.prompt3)).setBackgroundColor(
-                        Color.parseColor("#d2cced"));
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                        // increment current card displayed
+                        int localSize = allFlashcards.size() - 1;
+                        if(localSize < 0) localSize = 0;
+                        currentCardDisplayedIndex = getRandomNumber(0, localSize);
+
+                        // if we reached last card already, reset current card displayed
+                        if (currentCardDisplayedIndex > allFlashcards.size() - 1) {
+                            currentCardDisplayedIndex = 0;
+                        }
+
+                        // update flashcard
+                        if(allFlashcards.size() != 0) {
+                            // set the question and answer TextViews with data from the database
+                            ((TextView) findViewById(R.id.Question)).setText(
+                                    allFlashcards.get(currentCardDisplayedIndex).getQuestion());
+                            ((TextView) findViewById(R.id.prompt3)).setText(
+                                    allFlashcards.get(currentCardDisplayedIndex).getAnswer());
+                            ((TextView) findViewById(R.id.prompt1)).setText(
+                                    allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer1());
+                            ((TextView) findViewById(R.id.prompt2)).setText(
+                                    allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer2());
+                        }
+
+                        // reset colors
+                        ((TextView) findViewById(R.id.prompt1)).setBackgroundColor(
+                                Color.parseColor("#d2cced"));
+                        ((TextView) findViewById(R.id.prompt2)).setBackgroundColor(
+                                Color.parseColor("#d2cced"));
+                        ((TextView) findViewById(R.id.prompt3)).setBackgroundColor(
+                                Color.parseColor("#d2cced"));
+
+                        // start the rightIn Animation
+                        findViewById(R.id.Question).startAnimation(rightInAnim);
+                        findViewById(R.id.prompt1).startAnimation(rightInAnim);
+                        findViewById(R.id.prompt2).startAnimation(rightInAnim);
+                        findViewById(R.id.prompt3).startAnimation(rightInAnim);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                        // we don't need to worry about this method
+                    }
+                });
+
 
             }
         });
@@ -230,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                     ((TextView) findViewById(R.id.prompt2)).setText(
                             allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer2());
                 }
+
             }
 
         });
