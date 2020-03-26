@@ -11,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.plattysoft.leonids.ParticleSystem;
+
 import java.util.List;
 import java.util.Random;
 
@@ -107,6 +109,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.prompt3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // confetti
+                new ParticleSystem(MainActivity.this, 100, R.drawable.confetti, 3000)
+                        .setSpeedRange(0.2f, 0.5f)
+                        .oneShot(findViewById(R.id.prompt3), 100);
+
                 findViewById(R.id.prompt3).setBackgroundColor(Color.parseColor("#40d12a"));
                 findViewById(R.id.prompt1).setBackgroundColor(Color.parseColor("#d2cced"));
                 findViewById(R.id.prompt2).setBackgroundColor(Color.parseColor("#d2cced"));
