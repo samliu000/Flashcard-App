@@ -3,6 +3,7 @@ package com.example.samuelliu.flashcardapp;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,13 +28,33 @@ public class MainActivity extends AppCompatActivity {
     // for editing card
     Flashcard cardToEdit;
 
-    // get random number
+    // countdown timer
+    CountDownTimer countDownTimer;
+
+    /**
+     * To start timer
+     */
+    private void startTimer() {
+        countDownTimer.cancel();
+        countDownTimer.start();
+    }
+
+    /**
+     * Gets random number
+     * @param minNumber lower bound
+     * @param maxNumber upper bound
+     * @return random number between min and max
+     */
     public int getRandomNumber(int minNumber, int maxNumber) {
         Random rand = new Random();
         return rand.nextInt((maxNumber - minNumber) + 1) + minNumber;
     }
 
     @Override
+    /**
+     * On create method that runs everytime mainactivity is entered
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -43,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize flashcard list
         allFlashcards = flashcardDatabase.getAllCards();
+
+        // initialize countdown timer
+        countDownTimer = new CountDownTimer(16000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                ((TextView) findViewById(R.id.timer)).setText("" + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+            }
+        };
+
+        // start the timer
+        startTimer();
 
         // check to see if we have any cards in the database
         if (allFlashcards != null && allFlashcards.size() > 0) {
@@ -161,6 +195,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // start timer
+                startTimer();
+
                 // import animation
                 final Animation leftOutAnim = AnimationUtils.loadAnimation(v.getContext(),
                         R.anim.left_out);
@@ -173,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.prompt2).startAnimation(leftOutAnim);
                 findViewById(R.id.prompt3).startAnimation(leftOutAnim);
 
+                // anim listener
                 leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
 
                     @Override
@@ -225,8 +263,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onAnimationRepeat(Animation animation) {
                         // we don't need to worry about this method
                     }
-                });
 
+                });
 
             }
         });
@@ -236,6 +274,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // start timer
+                startTimer();
+
+                // delete card
                 flashcardDatabase.deleteCard(
                         ((TextView) findViewById(R.id.Question)).getText().toString());
 
@@ -276,7 +318,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         if ((requestCode == 100 || requestCode == 200) && data != null) {
+
+            // start timer
+            startTimer();
 
             // get new question and answer
             String question = data.getExtras().getString("question");
