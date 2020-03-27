@@ -1,10 +1,10 @@
 ## Lab 4
 
 ### App Description
-
+This is the improved flashcard app now with stylish animations. When you click the right answer, confetti will appear from the correct answer. When you switch to another card, a sliding transition will appear. This also happens when you want to add a new card. Additionally, there is now a timer for 15 seconds on top of each card that resets whenever the user switches to another card, edits the current card, or creates a new card. 
 
 ### App Walk-though
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="https://github.com/samliu000/FlashcardApp/blob/master/lab4demo.gif" width=200><br>
 
 ## Required
 - [x] User sees a transition animation when going from the main screen to the add card screen.
